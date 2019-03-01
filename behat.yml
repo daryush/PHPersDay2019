@@ -1,0 +1,7 @@
+default:
+  autoload:
+    - "%paths.base%/tests/features/bootstrap"
+  suites:
+    app:
+      paths: ["%paths.base%/tests/features/app"]
+      contexts: [ LibraryContext ]

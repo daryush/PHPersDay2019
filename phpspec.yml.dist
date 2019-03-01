@@ -1,0 +1,6 @@
+suites:
+    cart_suite:
+        namespace: "Library"
+        psr4_prefix: "Library"
+        src_path: "%paths.config%/src"
+        spec_path: "%paths.config%/tests"
