@@ -33,5 +33,6 @@ class BorrowBookHandler
             $command->getBorrowingDate(),
             $this->bookRepository
         );
+
     }
 }

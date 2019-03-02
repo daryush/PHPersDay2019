@@ -1,0 +1,9 @@
+Library\Application\Command\BorrowBook:
+  properties:
+    isbnNumber:
+      - NotBlank: ~
+      - Isbn:
+          type: isbn13
+    readerEmail:
+      - NotBlank: ~
+      - Email: ~

@@ -99,7 +99,7 @@ class LibraryContext implements Context
                 if ($borrowing->getReturnDate() != new \DateTimeImmutable($returnDay)) {
                     throw new \LogicException(
                         sprintf(
-                            'Book should be returned at leas on %s, but %s found',
+                            'Book should be returned at least on %s, but %s found',
                             $returnDay,
                             $borrowing->getReturnDate()->format('d-m-Y')
                         )

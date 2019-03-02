@@ -1,0 +1,33 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    Library\Application\Handler\:
+        resource: '../src/Application/Handler/*'
+    Library\Domain\Repository\:
+        resource: '../src/Domain/Repository/*'
+    Library\Infrastructure\:
+        resource: '../src/Infrastructure/*'
+        exclude: '../src/Infrastructure/Symfony/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you dont extend any base controller class
+    Library\Infrastructure\Symfony\Controller\:
+        resource: '../src/Infrastructure/Symfony/Controller/*'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+    Library\Domain\Repository\LibraryCardRepository: '@Library\Infrastructure\Doctrine\Repository\DoctrineLibraryCardRepository'
+    Library\Domain\Repository\BookRepository: '@Library\Infrastructure\Doctrine\Repository\DoctrineBookRepository'

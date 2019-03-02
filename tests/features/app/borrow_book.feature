@@ -9,5 +9,5 @@ Feature: Borrow book
     And today is "02-03-2019"
     When "john@test.com" borrow book "Professional PHP6" marked with isbn "9781234567897"
     Then "john@test.com" library card should contain borrowing of book with isbn "9781234567897"
-    And "john@test.com" should return book with isbn "9781234567897" at least on "22-03-2019"
+    And "john@test.com" should return book with isbn "9781234567897" at least on "23-03-2019"
 
